@@ -1,2 +1,2 @@
-# FastAPI-Board
-FastAPI 게시판 프로젝트
+# FastAPI-JWT
+FastAPI JWT 구현하기
