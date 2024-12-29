@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from db.database import engine, Base
-from routers import login, signup
+from routers import auth
 from core.config import DATABASE_URL
 
 Base.metadata.create_all(bind=engine)
@@ -17,8 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(login.router, prefix="/login", tags=["Login"])
-app.include_router(signup.router, prefix="/signup", tags=["Signup"])
+app.include_router(auth.router)
 
 @app.get("/")
 def read_root():
